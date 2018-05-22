@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+  		function fillStar(){
+  			const ratings = {
+ 			 	first_restaurant : 2.8,
+  				second_restaurant : 3.3,
+
+			};
+			const starTotal = 5;
+ 
+			for(const rating in ratings) {  
+
+		  		const starPercentage = (ratings[rating] / starTotal) * 100;
+
+  				const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
+
+  				document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded; 
+			}
+		}
+
+</script>
+</head>
+
+
+<body>
+
+<div class="fluid-container">
+  <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+              <a class="navbar-brand" href="#" style="font-size: 1.8em;">Code4Food</a>
+          </div>
+          <ul class="nav navbar-nav">
+              <li class="active"><a href="/ratings">Rating</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li><a><span class="glyphicon glyphicon-user"></span><%=user%></a></li>
+              <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+          </ul>
+        </div>
+    </nav>
+  <h1>Pho Rating</h1>
+  <p>This is some text.</p> 
+
+  <table class="table table-bordered">
+  	<thead>
+  		<tr>
+  			<th>Restaurant</th>
+  			<th>Rating</th>
+  			<th>Rank</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<tr class="first_restaurant">
+  			<td>Pho So 1 Boston</td>
+  			<td>
+  				<div class="stars-outer">
+  					<div class="stars-inner" id="hello"></div>
+  					
+  				</div>
+
+  			</td>
+  			<td>10th</td>
+  		</tr>
+  		<tr class="second_restaurant">
+  			<td>Pho Le</td>
+  			<td>
+  				<div class="stars-outer">
+  					<div class="stars-inner"></div>
+  				</div>
+  			</td>
+  			<td>3rd</td>
+  		</tr>
+
+  		<script type="text/javascript">
+  			fillStar();
+  		</script>
+  	</tbody>
+  </table>
+
+</div>
+
+
+</body>
+
+
+</html>
